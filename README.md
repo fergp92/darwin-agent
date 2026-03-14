@@ -255,6 +255,67 @@ cd dashboard && npm run dev
 
 ---
 
+## Docker
+
+### Quick Start (Docker)
+
+```bash
+cp .env.example .env
+# Edit .env with your passphrase, Telegram token, etc.
+
+docker compose up -d
+```
+
+This starts:
+- **darwin-agent** on port `7761` (REST API)
+- **darwin-dashboard** on port `7760` (nginx serving React + proxying `/api/` to darwin)
+
+### Wallet Setup (Docker)
+
+Generate wallets before first run:
+
+```bash
+docker compose run --rm darwin node scripts/setup-wallets.js
+```
+
+### Brain (Claude CLI) in Docker
+
+The Brain requires Claude CLI. To use it inside the container, mount your host's Claude config:
+
+```yaml
+# In docker-compose.yml, uncomment:
+volumes:
+  - ${HOME}/.claude:/home/darwin/.claude:ro
+```
+
+Without Claude CLI, Darwin still runs — the 4 strategies that don't need AI (yield, airdrop, liquidation, arbitrage) work with pure math. Only the prediction strategy requires the Brain.
+
+### Persistent Data
+
+Three named volumes keep data across container restarts:
+
+| Volume | Container Path | Content |
+|--------|---------------|---------|
+| `darwin-data` | `/app/data` | SQLite database + backups |
+| `darwin-wallets` | `/app/wallets` | Encrypted wallet files |
+| `darwin-logs` | `/app/logs` | Log files |
+
+### Useful Commands
+
+```bash
+docker compose logs -f darwin          # Follow agent logs
+docker compose logs -f dashboard       # Follow dashboard logs
+docker compose exec darwin node -e "
+  const {initDb,getDb}=await import('./core/db.js');
+  initDb('/app/data/darwin.db');
+  console.log(getDb().prepare('SELECT * FROM daily_snapshots ORDER BY date DESC LIMIT 5').all())
+"                                      # Query database
+docker compose down                    # Stop everything
+docker compose down -v                 # Stop + delete volumes (DESTRUCTIVE)
+```
+
+---
+
 ## Monitoring
 
 ### REST API (port 7761)

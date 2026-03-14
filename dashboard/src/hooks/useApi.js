@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 
-const BASE = 'http://localhost:7761';
+// In Docker: nginx proxies /api/ to darwin:7761, so use relative URLs
+// In dev: Vite proxy or direct access to localhost:7761
+const BASE = import.meta.env.VITE_API_URL || '';
 
 /**
  * Polls a Darwin API endpoint at a given interval.

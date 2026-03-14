@@ -1,0 +1,16 @@
+node_modules/
+dashboard/node_modules/
+dashboard/dist/
+data/darwin.db
+data/darwin.db-wal
+data/darwin.db-shm
+data/backups/
+wallets/*.enc
+logs/
+.env
+*.log
+.git/
+tests/
+README.md
+LICENSE
+SESSION-CONTEXT.md
