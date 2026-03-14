@@ -145,7 +145,14 @@ if (isMain) {
   const darwin = await initDarwin();
   await darwin.start();
 
+  // Keep process alive — heartbeat every 60s logs status
+  const heartbeat = setInterval(() => {
+    const state = darwin.portfolio.getState();
+    log.info({ tier: state.tier, mode: state.mode, balance: state.totalBalanceEur }, 'heartbeat');
+  }, 60000);
+
   const shutdown = async () => {
+    clearInterval(heartbeat);
     await darwin.stop();
     process.exit(0);
   };

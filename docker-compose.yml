@@ -9,9 +9,8 @@ services:
       - darwin-data:/app/data          # SQLite database + backups
       - darwin-wallets:/app/wallets    # Encrypted wallet files
       - darwin-logs:/app/logs          # Log files
-      # Mount Claude CLI config for Brain access (optional)
-      # Uncomment if you have Claude CLI installed on the host:
-      # - ${HOME}/.claude:/home/darwin/.claude:ro
+      # Mount Claude CLI config for Brain access
+      - ${HOME}/.claude:/home/darwin/.claude:ro
     env_file:
       - .env
     environment:
