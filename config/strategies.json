@@ -1,0 +1,30 @@
+{
+  "allocation": {
+    "0": { "prediction": 40, "airdrop": 30, "yield": 30, "liquidation": 0, "arbitrage": 0 },
+    "1": { "prediction": 30, "airdrop": 20, "yield": 10, "liquidation": 20, "arbitrage": 20 },
+    "2": { "prediction": 25, "airdrop": 15, "yield": 10, "liquidation": 25, "arbitrage": 25 },
+    "3": { "prediction": 20, "airdrop": 10, "yield": 5, "liquidation": 30, "arbitrage": 35 }
+  },
+  "scanIntervals": {
+    "prediction": 600000,
+    "airdrop": 21600000,
+    "yield": 3600000,
+    "liquidation": 15000,
+    "arbitrage": 10000
+  },
+  "minCapital": {
+    "prediction": 5,
+    "airdrop": 10,
+    "yield": 5,
+    "liquidation": 30,
+    "arbitrage": 50
+  },
+  "slippage": {
+    "arbitrage": { "default": 50, "max": 100 },
+    "prediction": { "default": null, "max": null },
+    "airdrop": { "default": 150, "max": 300 },
+    "yield": { "default": 50, "max": 100 },
+    "liquidation": { "default": 200, "max": 500 },
+    "emergency": { "default": 300, "max": 1000 }
+  }
+}

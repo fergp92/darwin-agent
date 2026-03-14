@@ -1,0 +1,56 @@
+{
+  "intervals": {
+    "balanceCheck": 30000,
+    "opportunityScan": 60000,
+    "riskHealthCheck": 300000,
+    "rebalance": 3600000,
+    "dailyReport": 86400000
+  },
+  "rpc": {
+    "solana": {
+      "url": "https://mainnet.helius-rpc.com/?api-key=YOUR_KEY",
+      "fallback": "https://api.mainnet-beta.solana.com"
+    },
+    "base": {
+      "url": "https://base-mainnet.g.alchemy.com/v2/YOUR_KEY",
+      "fallback": "https://mainnet.base.org"
+    },
+    "polygon": {
+      "url": "https://polygon-mainnet.g.alchemy.com/v2/YOUR_KEY",
+      "fallback": "https://polygon-rpc.com"
+    }
+  },
+  "risk": {
+    "maxPositionPct": 20,
+    "emergencyMaxPositionPct": 5,
+    "dailyLossLimitPct": 15,
+    "gasMaxPct": 10,
+    "duplicateWindowMs": 300000,
+    "capitalFloors": {
+      "normal": 30,
+      "emergency": 10,
+      "hibernation": 5
+    }
+  },
+  "brain": {
+    "timeoutMs": 60000,
+    "maxRetries": 1,
+    "maxQueueSize": 3,
+    "rebalanceSkipDeltaPct": 2,
+    "maxPostMortemsPerStrategy": 1
+  },
+  "monitoring": {
+    "apiPort": 7761,
+    "dashboardPort": 7760,
+    "telegram": {
+      "batchIntervalMs": 14400000,
+      "dailyReportHour": 9
+    }
+  },
+  "database": {
+    "path": "data/darwin.db",
+    "backupIntervalMs": 21600000,
+    "backupRetainDays": 7
+  },
+  "eurUsdRefreshMs": 300000
+}

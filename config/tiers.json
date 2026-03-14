@@ -1,0 +1,43 @@
+{
+  "tiers": [
+    {
+      "tier": 0,
+      "name": "Survive",
+      "minBalance": 0,
+      "upgradeAt": 150,
+      "downgradeAt": null,
+      "strategies": ["prediction", "airdrop", "yield"],
+      "infra": "free"
+    },
+    {
+      "tier": 1,
+      "name": "Stabilize",
+      "minBalance": 105,
+      "upgradeAt": 500,
+      "downgradeAt": 105,
+      "strategies": ["prediction", "airdrop", "yield", "liquidation", "arbitrage"],
+      "infra": "paid",
+      "infraCostEur": 11
+    },
+    {
+      "tier": 2,
+      "name": "Scale",
+      "minBalance": 350,
+      "upgradeAt": 2000,
+      "downgradeAt": 350,
+      "strategies": ["prediction", "airdrop", "yield", "liquidation", "arbitrage"],
+      "infra": "dedicated",
+      "infraCostEur": 50
+    },
+    {
+      "tier": 3,
+      "name": "Professional",
+      "minBalance": 1400,
+      "upgradeAt": null,
+      "downgradeAt": 1400,
+      "strategies": ["prediction", "airdrop", "yield", "liquidation", "arbitrage"],
+      "infra": "premium",
+      "infraCostEur": 200
+    }
+  ]
+}

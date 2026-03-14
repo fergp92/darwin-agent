@@ -1,0 +1,9 @@
+node_modules/
+data/darwin.db
+data/backups/
+wallets/*.enc
+logs/
+.env
+*.log
+dashboard/node_modules/
+dashboard/dist/

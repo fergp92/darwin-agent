@@ -1,0 +1,28 @@
+{
+  "name": "darwin",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Autonomous multi-chain trading agent",
+  "main": "darwin.js",
+  "scripts": {
+    "start": "node darwin.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "paper": "node scripts/paper-trade.js",
+    "setup": "node scripts/setup-wallets.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.0",
+    "ethers": "^6.13.0",
+    "better-sqlite3": "^11.7.0",
+    "fastify": "^5.2.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "zod": "^3.24.0",
+    "pino": "^9.6.0",
+    "pino-roll": "^2.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0"
+  }
+}
