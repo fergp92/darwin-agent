@@ -1,6 +1,7 @@
 {
   "name": "darwin-dashboard",
   "version": "1.0.0",
+  "packageManager": "pnpm@11.1.2",
   "private": true,
   "type": "module",
   "scripts": {

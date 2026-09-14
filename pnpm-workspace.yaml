@@ -1,0 +1,7 @@
+# pnpm 11+ per-repo config
+minimumReleaseAge: 1440
+autoInstallPeers: true
+allowBuilds:
+  better-sqlite3: true     # native sqlite bindings (prebuild-install / node-gyp)
+  bufferutil: false        # optional ws accelerator, pure-JS fallback
+  utf-8-validate: false    # optional ws accelerator, pure-JS fallback

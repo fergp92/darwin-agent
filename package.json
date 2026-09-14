@@ -1,6 +1,7 @@
 {
   "name": "darwin",
   "version": "0.1.0",
+  "packageManager": "pnpm@11.1.2",
   "type": "module",
   "private": true,
   "description": "Autonomous multi-chain trading agent",

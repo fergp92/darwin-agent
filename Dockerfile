@@ -2,16 +2,16 @@
 # Multi-stage build: build dashboard → production image
 
 # --- Stage 1: Build dashboard ---
-FROM node:22-slim AS dashboard-build
+FROM node:22.22.0-bookworm-slim AS dashboard-build
 
 WORKDIR /app/dashboard
-COPY dashboard/package.json dashboard/package-lock.json ./
-RUN npm ci
+COPY dashboard/package.json dashboard/pnpm-lock.yaml dashboard/pnpm-workspace.yaml ./
+RUN corepack enable && corepack prepare pnpm@11.1.2 --activate && pnpm install --frozen-lockfile
 COPY dashboard/ ./
-RUN npm run build
+RUN pnpm run build
 
 # --- Stage 2: Production ---
-FROM node:22-slim AS production
+FROM node:22.22.0-bookworm-slim AS production
 
 # better-sqlite3 needs build tools for native compilation
 RUN apt-get update && apt-get install -y \
@@ -23,8 +23,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install --omit=dev && npm cache clean --force
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN corepack enable && corepack prepare pnpm@11.1.2 --activate && pnpm install --frozen-lockfile --prod && pnpm store prune
 
 # Copy application code
 COPY core/ ./core/

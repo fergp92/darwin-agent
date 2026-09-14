@@ -194,8 +194,8 @@ For EVM chains, a **nonce manager** tracks pending transactions per chain and ha
 ```bash
 git clone https://github.com/fergp92/darwin-agent.git
 cd darwin-agent
-npm install
-cd dashboard && npm install && cd ..
+pnpm install --frozen-lockfile
+cd dashboard && pnpm install --frozen-lockfile && cd ..
 ```
 
 ### 2. Configure RPC Endpoints
@@ -249,7 +249,7 @@ node darwin.js
 ### 7. Dashboard
 
 ```bash
-cd dashboard && npm run dev
+cd dashboard && pnpm run dev
 # Open http://localhost:7760
 ```
 
@@ -412,7 +412,7 @@ darwin-agent/
 ## Running Tests
 
 ```bash
-npm test                                    # All tests (~116)
+pnpm test                                    # All tests (~116)
 npx vitest run tests/core/                  # Core modules
 npx vitest run tests/strategies/            # Strategy tests
 npx vitest run tests/monitoring/            # API + Telegram

@@ -25,8 +25,8 @@ echo -e "${GREEN}1/5${NC} Node.js $(node -v) detected"
 # 2. Install dependencies
 echo ""
 echo -e "${YELLOW}2/5${NC} Installing dependencies..."
-npm install --silent
-cd dashboard && npm install --silent && cd ..
+pnpm install --frozen-lockfile --silent
+cd dashboard && pnpm install --frozen-lockfile --silent && cd ..
 echo -e "${GREEN}2/5${NC} Dependencies installed"
 
 # 3. Check .env
@@ -62,8 +62,8 @@ echo "============================================"
 echo -e "  ${GREEN}Setup complete!${NC}"
 echo "============================================"
 echo ""
-echo "  Paper trade:  npm run paper"
-echo "  Production:   npm start"
-echo "  Dashboard:    cd dashboard && npm run dev"
-echo "  Tests:        npm test"
+echo "  Paper trade:  pnpm run paper"
+echo "  Production:   pnpm start"
+echo "  Dashboard:    cd dashboard && pnpm run dev"
+echo "  Tests:        pnpm test"
 echo ""
